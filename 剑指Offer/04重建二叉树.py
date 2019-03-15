@@ -11,20 +11,25 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 class Solution:
     # 返回构造的TreeNode根节点
     def reConstructBinaryTree(self, pre, tin):
         # write code here
-        pass
+        if pre == []:
+            return None     
+        root = TreeNode(pre[0])
+        for j in range(len(pre)):
+            if tin[j] == root.val:
+                left_tree_pre = pre[1:j+1]
+                left_tree_tin = tin[0:j]
+                right_tree_pre = pre[j+1:]
+                right_tree_tin = tin[j+1:]
+        
+        root.left = self.reConstructBinaryTree(left_tree_pre, left_tree_tin)
+        root.right = self.reConstructBinaryTree(right_tree_pre, right_tree_tin)
+        return root
 
-
-用例:
-[1,2,3,4,5,6,7],[3,2,4,1,6,5,7]
-
-对应输出应该为:
-
-{1,2,5,3,4,6,7}
-
-你的输出为:
-
-{}
+"""
+类中方法进行递归需加"self."
+"""
