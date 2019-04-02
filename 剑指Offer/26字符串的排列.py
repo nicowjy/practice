@@ -10,4 +10,26 @@
 class Solution:
     def Permutation(self, ss):
         # write code here
-        pass
+        if not ss:
+            return []
+        ss = sorted(ss)
+        list1 = []
+        for i, le in enumerate(ss):
+            if i >= 1:
+                if le == ss[i-1]:
+                    continue
+            substr = ss[:i] + ss[i+1:]
+            list2 = self.Permutation(substr)
+            if list2:
+                for item in list2:
+                    list1.append(le+item)
+            else:
+                list1.append(le)
+        return list1
+
+"""
+comment
+注意各种边界：
+1. 重复字符    # 可以用set(list1)去重，返回
+2. 字符串为空
+"""
