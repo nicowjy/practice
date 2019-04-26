@@ -8,10 +8,22 @@
 class Solution:
     # s 源字符串
     def replaceSpace(self, s):
-        # write code here
-        return s.replace(" ", "%20")
-
+        n = 0
+        s_spy = ''
+        while n < len(s):
+            if s[n] == ' ':
+                s_spy += '%20'
+            else:
+                s_spy += s[n]
+            n += 1
+        return s_spy
+        
 """
 comment：
 多个case有时不需要特殊处理
+class Solution:
+    # s 源字符串
+    def replaceSpace(self, s):
+        # write code here
+        return s.replace(" ", "%20")
 """

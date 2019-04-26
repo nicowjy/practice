@@ -8,6 +8,28 @@
 class Solution:
     # array 二维列表
     def Find(self, target, array):
+        # 考虑最大最小和空数组
+        if array == [[]]:
+            return False
+
+        # 从右上角开始，排除不可能的列
+        i = len(array[0])-1
+        j = 0
+        while i > 0 and j < len(array)-1:
+            while target < array[j][i] and i > 0:
+                i -= 1
+            while target > array[j][i] and j < len(array)-1:
+                j += 1
+            if target == array[j][i]:
+                return True
+        return False
+
+"""
+comment：
+先通过就行，别想复杂度
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
         # write code here
         n = len(array)
         for i in range(n):
@@ -25,9 +47,4 @@ while True:
         print(S.Find(target, array))
     except:
         break
-
-
-"""
-comment：
-先通过就行，别想内存
 """
