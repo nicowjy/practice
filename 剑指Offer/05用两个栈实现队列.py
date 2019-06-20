@@ -13,12 +13,6 @@ class Solution:
         self.list1.append(node)
 
     def pop(self):
-        '''
-        self.list2 = self.list1[::-1]
-        e = self.list2.pop()
-        self.list1 = self.list2[::-1]
-        return e
-        '''
         if self.list2 == []:       # list2不为0则直接pop
             while self.list1:
                 self.list2.append(self.list1.pop())
