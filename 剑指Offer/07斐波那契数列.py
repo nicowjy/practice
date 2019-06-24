@@ -14,3 +14,7 @@ class Solution:
             i, j = j, i+j
 
         return i
+
+if __name__ == "__main__":
+    a = Solution()
+    a.Fibonacci(4)

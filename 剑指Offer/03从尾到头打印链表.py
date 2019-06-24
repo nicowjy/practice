@@ -12,16 +12,27 @@
 from collections import deque
 class Solution:
     # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    # 基于栈的实现
     def printListFromTailToHead(self, listNode):
-        # write code here
         if not listNode:
             return []
         temp = deque()
         while listNode:
             temp.appendleft(listNode.val)
             listNode = listNode.next
-        return temp
+        return temp   
+
 """
 comment：
-使用collections中deque包
+1.使用collections中deque包
+2.询问是否可以修改原来的链表
+3.基于递归的实现存在问题：每次调用printListFromTailToHead不断在temp后面新增
+class Solution:
+    temp = []
+    # 基于递归的实现    
+    def printListFromTailToHead(self, listNode):
+        if listNode:
+            self.printListFromTailToHead(listNode.next)
+            self.temp.append(listNode.val)
+        return self.temp
 """

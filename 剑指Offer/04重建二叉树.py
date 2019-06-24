@@ -32,4 +32,21 @@ class Solution:
 
 """
 类中方法进行递归需加"self."
+class Solution:
+    # 返回构造的TreeNode根节点
+    def reConstructBinaryTree(self, pre, tin):
+        if pre == []:
+            return
+        p = pre[0]
+        for i in range(len(tin)):
+            if tin[i] == p:
+                lt = tin[:i]
+                rt = tin[i+1:]
+                lp = pre[1:i+1]
+                rp = pre[i+1:]
+                break
+        root = TreeNode(p)
+        root.left = self.reConstructBinaryTree(lp,lt)
+        root.right = self.reConstructBinaryTree(rp,rt)
+        return root
 """
