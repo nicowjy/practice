@@ -11,6 +11,31 @@ class Solution:
         # write code here
         if rotateArray is None:
             return 0
+        l = 0
+        r = len(rotateArray)-1
+
+        if rotateArray[l] < rotateArray[r]:
+            return rotateArray[l]
+        while rotateArray[l] >= rotateArray[r]:
+            if l == r-1:
+                return rotateArray[r]
+            mid = (l+r)/2
+            if rotateArray[l] <= rotateArray[mid]:
+                l = mid
+            else:
+                r = mid
+
+
+'''
+原始办法
+class Solution:
+    def minNumberInRotateArray(self, rotateArray):
+        # write code here
+        if rotateArray is None:
+            return 0
         for i in range(len(rotateArray)):
             if rotateArray[i] > rotateArray[i+1]:
                 return rotateArray[i+1]
+comment:
+注意一下< 和 <= 的使用
+'''
