@@ -19,3 +19,22 @@ class Solution:
         if k > len(list1) or k < 1:
             return
         return list1[-k]
+
+"""
+comment
+牛客里输入的不是头结点，下为书中代码
+class Solution:
+    def FindKthToTail(self, head, k):
+        # write code here
+        if not head:
+            return
+        p = head
+        for i in range(k-1):
+            p = p.next
+        q = head
+        while p.next is not None:
+            p = p.next
+            q = q.next
+
+        return q.val
+"""
