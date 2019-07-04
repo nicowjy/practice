@@ -29,3 +29,23 @@ class Solution:
             p.next = pHead2
 
         return pHead.next
+"""
+class Solution:
+    # 用递归实现
+    def Merge(self, pHead1, pHead2):
+        # write code here
+
+        if not pHead1:
+            return pHead2
+        elif not pHead2:
+            return pHead1
+        else:
+            if pHead1.val < pHead2.val:
+                p = pHead1
+                p.next = self.Merge(pHead1.next, pHead2)
+            else:
+                p = pHead2
+                p.next = self.Merge(pHead1, pHead2.next)
+        
+        return p
+"""

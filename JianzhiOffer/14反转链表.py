@@ -11,7 +11,21 @@ class Solution:
     # 返回ListNode
     def ReverseList(self, pHead):
         # write code here
-        """
+        if not pHead or not pHead.next:
+            return pHead
+        p = None
+        while pHead:
+            pPre = pHead
+            pHead = pPre.next
+            pPre.next = p
+            p = pPre
+        return p
+
+"""
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
         没看懂
         if not pHead or not pHead.next:
             return pHead
@@ -22,14 +36,5 @@ class Solution:
             last = pHead
             pHead = e
         return last
-        """
-        if not pHead or not pHead.next:
-            return pHead
-        p = None
-        while pHead:
-            q = pHead
-            pHead = q.next
-            q.next = p
-            p = q
-        pHead = p
-        return pHead
+
+"""
