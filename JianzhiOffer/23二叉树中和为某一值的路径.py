@@ -15,7 +15,7 @@ class Solution:
     def FindPath(self, root, expectNumber):
         # write code here
         if not root:
-            return []
+            return []    # 一定注意这里只有一层：[] + [[6]] = [[6]]; [[]] + [[6]] = [[], [6]]
 
         tmp = []
         if not root.right and not root.left and root.val == expectNumber:
@@ -32,4 +32,5 @@ class Solution:
 comment
 先将需要返回的函数记录在一个变量中，在通过对该变量的变量添加到结果中。
 以此将每一种可能都添加到最初的结果中。
+注意一下列表怎么拼
 """

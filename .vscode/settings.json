@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "D:\\Anaconda\\envs\\Python2\\python.exe",
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
+    "emmet.showSuggestionsAsSnippets": true
 }
