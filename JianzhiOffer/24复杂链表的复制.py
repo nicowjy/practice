@@ -43,7 +43,7 @@ class Solution:
             if p:
                 q.next = p.next
             else:
-                q.next = None
+                q.next = None     # 注意尾结点
                 break        
         return qHead
 
