@@ -11,17 +11,16 @@ class Solution(object):
         n = len(nums)
         if n == 1:
             return True
-        tmp = [False] * n
-        tmp[-1] = True
-        i = n-2
-        while i >= 0:
-            furthestJump = min(i+nums[i], n-1)
-            for j in range(furthestJump, i, -1):
-                if tmp[j] is True:
-                    tmp[i] = True
-            i -= 1
-                
-        return tmp[0]
+        reach = 0
+        for i in range(n):
+            if i > reach:
+                return False
+            if i + nums[i] > reach:
+                reach = i + nums[i]
+            else:
+                continue
+            if reach >= n-1:
+                return True
 
 
 if __name__ == "__main__":
