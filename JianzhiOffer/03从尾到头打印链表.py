@@ -26,13 +26,13 @@ class Solution:
 comment：
 1.使用collections中deque包
 2.询问是否可以修改原来的链表
-3.基于递归的实现存在问题：每次调用printListFromTailToHead不断在temp后面新增
-class Solution:
-    temp = []
-    # 基于递归的实现    
-    def printListFromTailToHead(self, listNode):
-        if listNode:
-            self.printListFromTailToHead(listNode.next)
-            self.temp.append(listNode.val)
-        return self.temp
 """
+# 基于递归的实现
+class Solution:
+    def printListFromTailToHead(self, listNode):
+        if not listNode:
+            return []
+        tmp = []
+        tmp += self.printListFromTailToHead(listNode.next)
+        tmp.append(listNode.val)
+        return tmp
