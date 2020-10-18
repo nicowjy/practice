@@ -15,13 +15,16 @@ class Solution:
         # 从右上角开始，排除不可能的列
         i = len(array[0])-1
         j = 0
-        while i > 0 and j < len(array)-1:
-            while target < array[j][i] and i > 0:
-                i -= 1
-            while target > array[j][i] and j < len(array)-1:
-                j += 1
+        while i >= 0 and j < len(array):
             if target == array[j][i]:
                 return True
+            elif i > 0 and target < array[j][i]:
+                i -= 1
+            elif j < len(array)-1 and target > array[j][i]:
+                j += 1
+            else:
+                break
+
         return False
 
 """

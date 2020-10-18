@@ -32,7 +32,6 @@ class Solution:
     def printListFromTailToHead(self, listNode):
         if not listNode:
             return []
-        tmp = []
-        tmp += self.printListFromTailToHead(listNode.next)
+        tmp = self.printListFromTailToHead(listNode.next)
         tmp.append(listNode.val)
         return tmp
